@@ -27,9 +27,10 @@ public class Surface {
 		for(int p = 0; p < pixels.length; p++) pixels[p] = 0xFF000000;
 	}
 	
-	public void renderFont(TTFont font, String text){
+	public void renderFont(VFont font, String text){
 		Graphics g = image.createGraphics();
 		g.setFont(font);
+		g.setColor(font.colour);
 		g.drawString(text, font.location.x, font.location.y);
 		g.dispose();
 	}
