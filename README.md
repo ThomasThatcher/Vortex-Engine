@@ -1,11 +1,13 @@
 Vortex-Engine
 =============
-A Pure Java Game Engine.
+A Pure Java Game Engine. In Development.
 
 Notable Features:
 	-	GPU Acceleration
 
-Short Comings:
+Short Comings (In Development):
+	-	Currently doesn't have audio support
+	-	Currently doesn't support font rendering
 	-	Transparency not supported
 			- Work Around: When creating graphics for your application,
 						   set pixels that would otherwise be set to
