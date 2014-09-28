@@ -5,8 +5,12 @@ A Pure Java Game Engine. In Development.
 Notable Features:
 	-	GPU Acceleration
 
+Audio Support:
+	- .WAVE .AU .AIFF .AIFC .SND <- Only
+	- Supported file formats can be either 8-bit or 16-bit, 
+	  with sampling rate from 8 kHz to 48 kHz.
+
 Short Comings (In Development):
-	-	Currently doesn't have audio support
 	-	Currently doesn't support font rendering
 	-	Transparency not supported
 			- Work Around: When creating graphics for your application,
