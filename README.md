@@ -11,7 +11,8 @@ Audio Support:
 	  with sampling rate from 8 kHz to 48 kHz.
 
 Short Comings (In Development):
-	-	Transparency not supported yet
+	-	Rotation not yet supported :(
+	-	Sprite Transparency not supported yet
 			- Work Around: When creating graphics for your application,
 						   set pixels that would otherwise be set to
 						   transparent. To a fluro pink/green and 'Override'
