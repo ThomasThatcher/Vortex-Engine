@@ -58,4 +58,10 @@ public class Sound {
 		this.playing = false;
 	}
 	
+	public synchronized void destroy() throws InterruptedException, IOException{
+		stop();
+		clip.close();
+		inputStream.close();
+	}
+	
 }

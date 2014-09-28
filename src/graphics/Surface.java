@@ -1,6 +1,7 @@
 package graphics;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -24,6 +25,13 @@ public class Surface {
 	
 	public void clear(){
 		for(int p = 0; p < pixels.length; p++) pixels[p] = 0xFF000000;
+	}
+	
+	public void renderFont(TTFont font, String text){
+		Graphics g = image.createGraphics();
+		g.setFont(font);
+		g.drawString(text, font.location.x, font.location.y);
+		g.dispose();
 	}
 	
 	public void render(Sprite s, Entity e){

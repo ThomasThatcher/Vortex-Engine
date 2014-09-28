@@ -2,11 +2,17 @@ package core;
 
 import graphics.Sprite;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+import audio.Sound;
 
 public class AssetLoader {
 
@@ -22,6 +28,14 @@ public class AssetLoader {
 	public Sprite loadSprite(String path) throws IOException{
 		BufferedImage bi = loadImage(path);
 		return new Sprite(getImagePixels(bi), bi.getWidth(), bi.getHeight());
+	}
+	
+	public Font loadFont(String path, int format) throws FontFormatException, IOException{
+		return Font.createFont(format, new File(path));
+	}
+	
+	public Sound loadSound(String path) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+		return new Sound(path);
 	}
 	
 }
