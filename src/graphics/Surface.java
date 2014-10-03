@@ -39,31 +39,39 @@ public class Surface {
 		
 		for(int x = e.x; x < e.x + s.width; x++){
 			for(int y = e.y; y < e.y + s.height; y++){
-				setPixel(x, y, s.getPixel(x, y));
+				Vector2 cor = new Vector2((int)e.getCenterX(), (int)e.getCenterY());
+				setPixel(x, y, s.getPixel(x, y), e.rotation, cor);
 			}
 		}
 		
 	}
 	
-	public void render(Sprite s, Vector2 location){
+	public void render(Sprite s, Vector2 location, int rotation){
 		
 		for(int x = location.x; x < location.x + s.width; x++){
 			for(int y = location.y; y < location.y + s.height; y++){
-				setPixel(x, y, s.getPixel(x, y));
+				Vector2 cor = new Vector2(location.x + (s.width / 2), location.y + (s.height / 2));
+				setPixel(x, y, s.getPixel(x, y), rotation, cor);
 			}
 		}
 		
 	}
 	
-	public void setPixel(int x, int y, int colour){
-		int location = x + (y * bounds.width);
+	public void setPixel(int x, int y, int colour, int rotation, Vector2 centerOfRotation){
+		
+		double hyp = Math.hypot(centerOfRotation.x - x, centerOfRotation.y - y);
+		x = (int) (hyp / Math.signum(Math.toRadians(rotation)));
+		y = (int) (hyp / Math.signum(Math.toRadians(rotation)));
+		
+		int location = (x - camera.x) + ((y - camera.y) * bounds.width);
 		if(location > 0 && location < pixels.length){
-			this.pixels[(x - camera.x) + ((y - camera.y) * bounds.width)] = colour;
+			this.pixels[location] = colour;
 		}
+		
 	}
 	
 	public int getPixel(int x, int y){
-		return this.pixels[(x - camera.x) + ((y - camera.y) * bounds.width)];
+		return pixels[(x - camera.x) + ((y - camera.y) * bounds.width)];
 	}
 	
 }

@@ -7,6 +7,7 @@ public class Entity extends Rectangle {
 
 	private static final long serialVersionUID = 1L;
 	
+	public int rotation;
 	public Vector2 velocity;
 	
 	public Entity(Rectangle bounds){
