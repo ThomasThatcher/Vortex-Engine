@@ -60,8 +60,8 @@ public class Surface {
 	public void setPixel(int x, int y, int colour, int rotation, Vector2 centerOfRotation){
 		
 		double hyp = Math.hypot(centerOfRotation.x - x, centerOfRotation.y - y);
-		x = (int) (hyp / Math.signum(Math.toRadians(rotation)));
-		y = (int) (hyp / Math.signum(Math.toRadians(rotation)));
+		x = (int) (hyp * Math.signum(Math.toRadians(rotation)));
+		y = (int) (hyp * Math.signum(Math.toRadians(rotation)));
 		
 		int location = (x - camera.x) + ((y - camera.y) * bounds.width);
 		if(location > 0 && location < pixels.length){
